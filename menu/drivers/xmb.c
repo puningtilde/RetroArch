@@ -454,6 +454,97 @@ float gradient_morning_blue[16] = {
    170/255.0, 200/255.0, 252/255.0, 1.00,
 };
 
+float gradient_peach[16] = {
+   237/255.0, 66/255.0, 100/255.0, 1.00,
+   246/255.0, 151/255.0, 144/255.0, 1.00,
+   246/255.0, 151/255.0, 144/255.0, 1.00,
+   255/255.0, 255/255.0, 255/255.0, 1.00,
+};
+
+float gradient_lilac[16] = {
+   255/255.0, 202/255.0, 210/255.0, 1.00,
+   75/255.0, 36/255.0, 251/255.0, 1.00,
+   159/255.0, 103/255.0, 235/255.0, 1.00,
+   75/255.0, 36/255.0, 251/255.0, 1.00,
+};
+
+float gradient_astro[16] = {
+   151/255.0, 8/255.0, 204/255.0, 1.00,
+   105/255.0, 117/255.0, 233/255.0, 1.00,
+   67/255.0, 203/255.0, 255/255.0, 1.00,
+   67/255.0, 203/255.0, 255/255.0, 1.00,
+};
+
+float gradient_lake[16] = {
+   0/255.0, 38/255.0, 97/255.0, 1.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   146/255.0, 255/255.0, 192/255.0, 1.00,
+};
+
+float gradient_nectarine[16] = {
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   253/255.0, 216/255.0, 25/255.0, 1.00,
+   232/255.0, 5/255.0, 5/255.0, 1.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+};
+
+float gradient_pink_lemonade[16] = {
+   240/255.0, 114/255.0, 182/255.0, 1.00,
+   240/255.0, 114/255.0, 182/255.0, 1.00,
+   255/255.0, 248/255.0, 134/255.0, 1.00,
+   255/255.0, 170/255.0, 127/255.0, 1.00,
+};
+
+float gradient_bruise[16] = {
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   56/255.0, 19/255.0, 194/255.0, 1.00,
+   255/255.0, 111/255.0, 216/255.0, 1.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+};
+
+float gradient_lava_lamp[16] = {
+   42/255.0, 250/255.0, 223/255.0, 1.00,
+   42/255.0, 250/255.0, 223/255.0, 1.00,
+   76/255.0, 131/255.0, 255/255.0, 1.00,
+   76/255.0, 131/255.0, 255/255.0, 1.00,
+};
+
+float gradient_grapefruit[16] = {
+   58/255.0, 28/255.0, 113/255.0, 1.00,
+   58/255.0, 28/255.0, 113/255.0, 1.00,
+   255/255.0, 175/255.0, 123/255.0, 1.00,
+   255/255.0, 175/255.0, 123/255.0, 1.00,
+};
+
+float gradient_dusk[16] = {
+   255/255.0, 216/255.0, 155/255.0, 1.00,
+   255/255.0, 216/255.0, 155/255.0, 1.00,
+   25/255.0, 84/255.0, 123/255.0, 1.00,
+   25/255.0, 84/255.0, 123/255.0, 1.00,
+};
+
+float gradient_pearl[16] = {
+   178/255.0, 185/255.0, 240/255.0, 1.00,
+   240/255.0, 177/255.0, 198/255.0, 1.00,
+   255/255.0, 250/255.0, 246/255.0, 1.00,
+   255/255.0, 250/255.0, 246/255.0, 1.00,
+};
+
+float gradient_fun_dip[16] = {
+   67/255.0, 206/255.0, 162/255.0, 1.00,
+   24/255.0, 90/255.0, 157/255.0, 1.00,
+   67/255.0, 206/255.0, 162/255.0, 1.00,
+   24/255.0, 90/255.0, 157/255.0, 1.00,
+};
+
+float gradient_grey[16] = {
+   18/255.0, 18/255.0, 18/255.0, 1.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   255/255.0, 255/255.0, 255/255.0, 0.00,
+   51/255.0, 51/255.0, 51/255.0, 1.00,
+};
+
 static void xmb_calculate_visible_range(const xmb_handle_t *xmb,
       unsigned height, size_t list_size, unsigned current,
       unsigned *first, unsigned *last);
@@ -585,6 +676,32 @@ static float *xmb_gradient_ident(video_frame_info_t *video_info)
          return &gradient_light[0];
       case XMB_THEME_MORNING_BLUE:
          return &gradient_morning_blue[0];
+      case XMB_THEME_PEACH:
+         return &gradient_peach[0];
+      case XMB_THEME_LILAC:
+          return &gradient_lilac[0];
+      case XMB_THEME_ASTRO:
+          return &gradient_astro[0];
+      case XMB_THEME_LAKE:
+          return &gradient_lake[0];
+      case XMB_THEME_NECTARINE:
+          return &gradient_nectarine[0];
+      case XMB_THEME_PINK_LEMONADE:
+          return &gradient_pink_lemonade[0];
+      case XMB_THEME_BRUISE:
+          return &gradient_bruise[0];
+      case XMB_THEME_LAVA_LAMP:
+          return &gradient_lava_lamp[0];
+      case XMB_THEME_GRAPEFRUIT:
+          return &gradient_grapefruit[0];
+      case XMB_THEME_DUSK:
+          return &gradient_dusk[0];
+      case XMB_THEME_PEARL:
+          return &gradient_pearl[0];
+      case XMB_THEME_FUN_DIP:
+          return &gradient_fun_dip[0];
+      case XMB_THEME_GREY:
+          return &gradient_grey[0];
       case XMB_THEME_LEGACY_RED:
       default:
          break;
