@@ -3664,6 +3664,84 @@ static void setting_get_string_representation_uint_xmb_menu_color_theme(
                   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_MORNING_BLUE),
                len);
          break;
+      case XMB_THEME_PEACH:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PEACH),
+               len);
+         break;
+      case XMB_THEME_LILAC:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_LILAC),
+               len);
+         break;
+      case XMB_THEME_ASTRO:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_ASTRO),
+               len);
+         break;
+      case XMB_THEME_LAKE:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_LAKE),
+               len);
+         break;
+      case XMB_THEME_NECTARINE:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_NECTARINE),
+               len);
+         break;
+      case XMB_THEME_PINK_LEMONADE:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PINK_LEMONADE),
+               len);
+         break;
+      case XMB_THEME_BRUISE:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_BRUISE),
+               len);
+         break;
+      case XMB_THEME_LAVA_LAMP:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_LAVA_LAMP),
+               len);
+         break;
+      case XMB_THEME_GRAPEFRUIT:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GRAPEFRUIT),
+               len);
+         break;
+      case XMB_THEME_DUSK:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_DUSK),
+               len);
+         break;
+      case XMB_THEME_PEARL:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PEARL),
+               len);
+         break;
+      case XMB_THEME_FUN_DIP:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_FUN_DIP),
+               len);
+         break;
+      case XMB_THEME_GREY:
+         strlcpy(s,
+               msg_hash_to_str(
+                  MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GREY),
+               len);
+         break;
    }
 }
 #endif
@@ -5713,8 +5791,8 @@ void general_write_handler(rarch_setting_t *setting)
                settings->bools.video_shader_enable = false;
             }
          }
+         /* TODO/FIXME - fallthrough here intentional? */
 #endif
-         break;
       case MENU_ENUM_LABEL_VIDEO_THREADED:
          {
             if (*setting->value.target.boolean)
@@ -7469,7 +7547,7 @@ static bool setting_append_list(
       case SETTINGS_LIST_CONFIGURATION:
          {
             uint8_t i;
-            struct bool_entry bool_entries[7];
+            struct bool_entry bool_entries[6];
             START_GROUP(list, list_info, &group_info,
                   msg_hash_to_str(MENU_ENUM_LABEL_VALUE_CONFIGURATION_SETTINGS), parent_group);
 
@@ -7513,12 +7591,6 @@ static bool setting_append_list(
             bool_entries[5].SHORT_enum_idx = MENU_ENUM_LABEL_VALUE_AUTO_SHADERS_ENABLE;
             bool_entries[5].default_value  = default_auto_shaders_enable;
             bool_entries[5].flags          = SD_FLAG_NONE;
-
-            bool_entries[6].target         = &settings->bools.global_core_options;
-            bool_entries[6].name_enum_idx  = MENU_ENUM_LABEL_GLOBAL_CORE_OPTIONS;
-            bool_entries[6].SHORT_enum_idx = MENU_ENUM_LABEL_VALUE_GLOBAL_CORE_OPTIONS;
-            bool_entries[6].default_value  = default_global_core_options;
-            bool_entries[6].flags          = SD_FLAG_NONE;
 
             for (i = 0; i < ARRAY_SIZE(bool_entries); i++)
             {
@@ -9814,7 +9886,7 @@ static bool setting_append_list(
                   &settings->bools.quit_press_twice,
                   MENU_ENUM_LABEL_QUIT_PRESS_TWICE,
                   MENU_ENUM_LABEL_VALUE_QUIT_PRESS_TWICE,
-                  DEFAULT_QUIT_PRESS_TWICE,
+                  false,
                   MENU_ENUM_LABEL_VALUE_OFF,
                   MENU_ENUM_LABEL_VALUE_ON,
                   &group_info,
@@ -13471,26 +13543,6 @@ static bool setting_append_list(
                general_read_handler,
                SD_FLAG_NONE
                );
-
-#ifdef HAVE_OZONE
-         if (string_is_equal(settings->arrays.menu_driver, "ozone"))
-         {
-            CONFIG_BOOL(
-                  list, list_info,
-                  &settings->bools.ozone_truncate_playlist_name,
-                  MENU_ENUM_LABEL_OZONE_TRUNCATE_PLAYLIST_NAME,
-                  MENU_ENUM_LABEL_VALUE_OZONE_TRUNCATE_PLAYLIST_NAME,
-                  DEFAULT_OZONE_TRUNCATE_PLAYLIST_NAME,
-                  MENU_ENUM_LABEL_VALUE_OFF,
-                  MENU_ENUM_LABEL_VALUE_ON,
-                  &group_info,
-                  &subgroup_info,
-                  parent_group,
-                  general_write_handler,
-                  general_read_handler,
-                  SD_FLAG_NONE);
-         }
-#endif
 
          END_SUB_GROUP(list, list_info, parent_group);
 
